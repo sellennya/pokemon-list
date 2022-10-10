@@ -1,5 +1,5 @@
 import './App.css';
-import Pokemon from './Pokemon';
+import Pokemon from './components/Pokemon';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {

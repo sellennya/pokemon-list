@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap';
 import PokemonCard from './PokemonCard';
-import PokemonPagination from './PokemonPagination';
 import ReactLoading from 'react-loading';
 import './Pokemon.css';
+import PokemonNavbar from './PokemonNavbar';
 
-export default function Pokemon() {
+export default function Pokemon(props) {
   const [pokemons, setPokemons] = useState([]);
   const [ready, setReady] = useState(false);
 
@@ -31,13 +31,12 @@ export default function Pokemon() {
     return (
       <div className='Pokemon'>
         <h1 className='my-5'>Pokémon List</h1>
+        <PokemonNavbar />
         <Container>
-          <PokemonPagination />
           <Row>
-            {pokemons.map((pokemon, index) => {
-              console.log(pokemon);
+            {pokemons.map((pokemon, id) => {
               return (
-                <Col xs={3} key={index}>
+                <Col xs={3} key={id}>
                   <PokemonCard pokemon={pokemon.data} />
                 </Col>
               );
