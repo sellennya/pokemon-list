@@ -7,7 +7,7 @@ import './Pokemon.css';
 import PokemonNavbar from './PokemonNavbar';
 import PokemonPagination from './PokemonPagination';
 
-export default function Pokemon(props) {
+export default function Pokemon() {
   const [pokemons, setPokemons] = useState([]);
   const [ready, setReady] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -16,10 +16,11 @@ export default function Pokemon(props) {
   // Change page
   const onPageClick = (pageNumber) => setCurrentPage(pageNumber);
 
-  function handleResponse(response) {
+  // handle response from API
+  const handleResponse = (response) => {
     setReady(true);
     setPokemons(response);
-  }
+  };
 
   useEffect(() => {
     let endpoints = [];
@@ -42,7 +43,11 @@ export default function Pokemon(props) {
     return (
       <div className='Pokemon'>
         <div className='container'>
-          <h1 className='my-5'>Pokémon List</h1>
+          <img
+            src={require('../assets/pokeapi_logo.png')}
+            alt={'logo'}
+            className='Pokemon-image my-5'
+          />
           <PokemonNavbar />
           <Container>
             <PokemonPagination
@@ -54,7 +59,7 @@ export default function Pokemon(props) {
               {currentPokemons.map((pokemon, id) => {
                 return (
                   <Col xs={3} key={id}>
-                    <PokemonCard pokemon={pokemon.data} />
+                    <PokemonCard pokemon={pokemon} />
                   </Col>
                 );
               })}

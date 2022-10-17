@@ -21,9 +21,9 @@ export default function PokemonDetails() {
       games: 0,
     },
   ]);
-  const { favorite, setFavorite } = useContext(FavoriteContext);
+  const { updateFavoritePokemons } = useContext(FavoriteContext);
 
-  function handleResponse(response) {
+  const handleResponse = (response) => {
     setReady(true);
     setSinglePokemon({
       title: response.data.name,
@@ -35,7 +35,7 @@ export default function PokemonDetails() {
       moves: response.data.moves[0].move.name,
       games: response.data.game_indices[0].game_index,
     });
-  }
+  };
 
   useEffect(() => {
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon';
@@ -65,7 +65,7 @@ export default function PokemonDetails() {
               <Button
                 className='mt-3'
                 onClick={() => {
-                  setFavorite(singlePokemon);
+                  updateFavoritePokemons(singlePokemon);
                 }}
               >
                 Add to Favorites
