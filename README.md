@@ -68,3 +68,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Project Info:
+
+- Description: Pokemon List App made with React JS that displays a list of pokemons that the user can click on each pokemon details and see more information about the pokemon, and add to your favorite list.
+
+- Requirements accomplished :
+  The user should be able to see a main screen with a list of pokemons( name, image and button to see more details)
+- Pagination is applied on main page
+  -By clicking on "Details", the user should be able to navigate to another page, that contains more info about the pokemon
+- In the Details page the use should be able to favorite a pokemon by clicking on "Add to Favorites"
+- The main page contains a Navbar with two links:
+  Click on favorites, the user can see all the list of favorite pokemons
+  Home page - to return back to the main page.
+
+Technologies used: Node JS, React JS, Bootstrap, Axios, React-Loading, CSS,JSX
