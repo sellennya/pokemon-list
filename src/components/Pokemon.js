@@ -66,6 +66,18 @@ export default function Pokemon() {
             </Row>
           </Container>
         </div>
+        <footer>
+          <p>
+            Coded by Sandra Cardoso and is{' '}
+            <a
+              href='https://github.com/sellennya/pokemon-list'
+              target='_blank'
+              rel='noreferrer'
+            >
+              open-sourced on GitHub
+            </a>
+          </p>
+        </footer>
       </div>
     );
   } else {
