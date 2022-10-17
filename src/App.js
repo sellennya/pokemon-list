@@ -2,7 +2,7 @@ import './App.css';
 import Pokemon from './components/Pokemon';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+export default function App() {
   return (
     <div className='App'>
       <div className='container'>
@@ -11,5 +11,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

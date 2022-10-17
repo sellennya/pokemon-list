@@ -1,24 +1,27 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FavoriteContext } from '../contexts/FavoriteContext';
 
 export default function PokemonDetails() {
   const { id } = useParams();
-
   const [ready, setReady] = useState(false);
-  const [singlePokemon, setSinglePokemon] = useState({
-    title: '',
-    image: null,
-    ability: '',
-    type: '',
-    height: 0,
-    weight: 0,
-    moves: '',
-    games: 0,
-  });
+  const [singlePokemon, setSinglePokemon] = useState([
+    {
+      title: '',
+      image: null,
+      ability: '',
+      type: '',
+      height: 0,
+      weight: 0,
+      moves: '',
+      games: 0,
+    },
+  ]);
+  const { favorite, setFavorite } = useContext(FavoriteContext);
 
   function handleResponse(response) {
     setReady(true);
@@ -59,7 +62,14 @@ export default function PokemonDetails() {
             <div>Moves: {singlePokemon.moves}</div>
             <div>Games: {singlePokemon.games}</div>
             <Link to={'/pokemon/favorites'}>
-              <Button className='mt-3'>Add to Favorites</Button>
+              <Button
+                className='mt-3'
+                onClick={() => {
+                  setFavorite(singlePokemon);
+                }}
+              >
+                Add to Favorites
+              </Button>
             </Link>
           </div>
         </Card.Body>
